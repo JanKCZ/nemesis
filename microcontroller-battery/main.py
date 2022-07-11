@@ -18,27 +18,22 @@ def do_connect():
         print('network config:', wlan.ifconfig())
 
 
+do_connect()
+
 btn = Pin(13, Pin.IN)
 esp32.wake_on_ext0(pin = btn, level = esp32.WAKEUP_ANY_HIGH)
 
-try:
-    wlan.connect()
-    print("first try")
-except Exception as ex:
-    print(ex)
-    do_connect()
-
 def send_play_request():
-    URL = "http://10.0.1.35:5555/play"
+    URL = "http://10.255.254.146:5000/play"
     response = re.get(url=URL)
     print(response.text)
 
 def send_stop_request():
-    URL = "http://10.0.1.35:5555/stop"
+    URL = "http://10.255.254.146:5000/stop"
     re.get(url=URL)
     
 def get_state_request():
-    URL = "http://10.0.1.35:5555/state"
+    URL = "http://10.255.254.146:5000/state"
     return re.get(url=URL).text
 
 state = get_state_request()
