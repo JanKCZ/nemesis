@@ -11,7 +11,7 @@ def index():
 @app.route('/play')
 def play():
     sp.call(["sh", "./wake_up.sh"])
-    url = "http://127.0.0.1:8080/requests/status.xml?command=in_play&input=/home/pi/Downloads/video.mp4"
+    url = "http://127.0.0.1:8080/requests/status.xml?command=in_play&input=/Users/honzak/Downloads/video.mp4"
     headers = {
     'Authorization': 'Basic OjIzMzcy',
     'Content-Type': 'text/plain'
